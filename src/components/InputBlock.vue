@@ -7,6 +7,7 @@
 
 <template>
   <div class="p-6 rounded-box border border-neutral shadow mb-6">
+    <h2 class="text-lg font-bold mb-4">得点入力</h2>
     <div class="overflow-x-auto">
       <table class="table table-fixed">
         <tbody>

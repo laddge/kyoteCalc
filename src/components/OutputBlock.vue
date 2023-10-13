@@ -11,6 +11,7 @@
 
 <template>
   <div class="p-6 rounded-box border border-neutral shadow mb-6">
+    <h2 class="text-lg font-bold mb-4">計算結果</h2>
     <div v-for="p in presets.list" class="collapse collapse-arrow rounded-none border-b-2">
       <input type="checkbox" />
       <div class="collapse-title text-xl font-medium flex">
