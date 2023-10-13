@@ -6,4 +6,4 @@ export const useInputStore = defineStore('input', () => {
   const scores = ref<{ [key: keyof typeof subjects]: number }>({})
 
   return { scores }
-})
+}, { persist: true })

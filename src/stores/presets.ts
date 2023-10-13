@@ -40,4 +40,4 @@ export const usePresetsStore = defineStore('presets', () => {
   ])
 
   return { list }
-})
+}, { persist: true })
