@@ -38,6 +38,9 @@ export const usePresetsStore = defineStore('presets', () => {
       },
     },
   ])
+  const remove = (index: number) => {
+    list.value.splice(index, 1)
+  }
 
-  return { list }
+  return { list, remove }
 }, { persist: true })

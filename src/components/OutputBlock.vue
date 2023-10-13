@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { ref } from 'vue'
   import { colors, subjects } from '@/globals'
   import { useInputStore } from '@/stores/input'
   import { usePresetsStore } from '@/stores/presets'
@@ -6,6 +7,7 @@
 
   const input = useInputStore()
   const presets = usePresetsStore()
+  const removeIndex = ref<number | null>(null)
 
   const sum = (list: number[]) => list.reduce((a, b) => a + b)
   const filter = (obj: { [key: string]: number }) => Object.keys(obj)
@@ -22,7 +24,7 @@
       <h2 class="text-lg font-bold">計算結果</h2>
       <AppendPreset />
     </div>
-    <div v-for="p in presets.list" class="collapse collapse-arrow rounded-none border-b-2">
+    <div v-for="(p, i) in presets.list" class="collapse collapse-arrow rounded-none border-b-2">
       <input type="checkbox" />
       <div class="collapse-title text-xl font-medium flex">
         {{ p.name }}
@@ -48,7 +50,24 @@
             </tr>
           </tbody>
         </table>
+        <div class="flex justify-end mt-2">
+          <button onclick="removeModal.showModal()" @click="removeIndex = i" class="btn btn-outline btn-error btn-sm">削除する</button>
+        </div>
       </div>
     </div>
+    <dialog id="removeModal" v-if="removeIndex != null" class="modal">
+      <div class="modal-box">
+        <p class="py-4">「{{ presets.list[removeIndex]?.name }}」を削除しますか？</p>
+        <div class="modal-action">
+          <form method="dialog">
+            <button class="btn">キャンセル</button>
+          </form>
+          <button onclick="removeModal.close()" @click="presets.remove(removeIndex)" class="btn btn-error">削除</button>
+        </div>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
   </div>
 </template>
