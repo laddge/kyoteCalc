@@ -6,7 +6,16 @@ module.exports = {
   },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ['emerald'],
+    themes: [
+      {
+        'emerald': {
+          ...require("daisyui/src/theming/themes")["[data-theme=emerald]"],
+          "--animation-btn": "0.25s",
+          "--animation-input": "0.2s",
+          "--btn-focus-scale": "0.95",
+        },
+      },
+    ],
   },
 }
 
