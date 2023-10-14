@@ -25,7 +25,7 @@
 </script>
 
 <template>
-  <button @click="init(); appendPresetModal?.showModal()" class="btn btn-sm btn-ghost aspect-square p-0">
+  <button @click="init(); appendPresetModal?.showModal()" title="append" class="btn btn-sm btn-ghost aspect-square p-0">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
     </svg>
@@ -35,7 +35,7 @@
       <div class="flex justify-between items-center mb-4">
         <h2 class="text-lg font-bold">プリセット追加</h2>
         <form method="dialog">
-          <button @click="appendPresetModal?.showModal()" class="btn btn-sm btn-ghost aspect-square p-0">
+          <button @click="appendPresetModal?.showModal()" title="close" class="btn btn-sm btn-ghost aspect-square p-0">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>

@@ -5,7 +5,7 @@
 
 <template>
   <header class="navbar bg-base-100">
-    <a class="btn btn-ghost normal-case text-xl">共通テスト配点計算ツール</a>
+    <h1 class="btn btn-ghost normal-case text-xl">共通テスト配点計算ツール</h1>
   </header>
   <main class="p-4 max-w-xl mx-auto">
     <InputBlock />
