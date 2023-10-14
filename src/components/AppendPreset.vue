@@ -45,7 +45,7 @@
         <label class="label">
           <span class="label-text">プリセット名</span>
         </label>
-        <input type="text" placeholder="○○大△△学部□□学科☆期など" v-model="data.name" class="input input-bordered w-full" />
+        <input type="text" placeholder="○○大△△学部□□学科☆期など" autofocus v-model="data.name" class="input input-bordered w-full" />
       </div>
       <table class="table table-fixed">
         <tbody>
