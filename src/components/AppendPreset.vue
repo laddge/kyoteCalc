@@ -78,8 +78,5 @@
         <button @click="append(); appendPresetModal?.close()" :disabled="!data.name || !Object.values(data.scores).reduce((a, b) => a + b, 0)" class="btn btn-primary">追加</button>
       </div>
     </div>
-    <form method="dialog" class="modal-backdrop">
-      <button>close</button>
-    </form>
   </dialog>
 </template>

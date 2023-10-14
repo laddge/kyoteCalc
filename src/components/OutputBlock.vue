@@ -66,9 +66,6 @@
           <button @click="presets.remove(removeIndex); removeModal?.close()" class="btn btn-error">削除</button>
         </div>
       </div>
-      <form method="dialog" class="modal-backdrop">
-        <button>close</button>
-      </form>
     </dialog>
   </div>
 </template>
