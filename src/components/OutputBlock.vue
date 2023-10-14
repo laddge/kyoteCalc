@@ -26,7 +26,7 @@
       <AppendPreset />
     </div>
     <div v-for="(p, i) in presets.list" class="collapse collapse-arrow rounded-none border-b-2">
-      <input type="checkbox" class="hidden" />
+      <input type="checkbox" />
       <div class="collapse-title text-xl font-medium flex">
         {{ p.name }}
         <div class="ml-6">
