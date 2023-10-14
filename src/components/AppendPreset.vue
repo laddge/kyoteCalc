@@ -74,7 +74,7 @@
         <form method="dialog">
           <button class="btn">キャンセル</button>
         </form>
-        <button onclick="appendPresetModal.close()" @click="append" :disabled="!data.name || !Object.values(data.scores).reduce((a, b) => a + b)" class="btn btn-primary">追加</button>
+        <button onclick="appendPresetModal.close()" @click="append" :disabled="!data.name || !Object.values(data.scores).reduce((a, b) => a + b, 0)" class="btn btn-primary">追加</button>
       </div>
     </div>
     <form method="dialog" class="modal-backdrop">
