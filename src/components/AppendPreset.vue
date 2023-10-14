@@ -11,6 +11,7 @@
     name: '',
     scores: {},
   })
+  const appendPresetModal = ref<HTMLDialogElement | null>(null)
 
   const init = () => {
     data.value = {
@@ -24,17 +25,17 @@
 </script>
 
 <template>
-  <button onclick="appendPresetModal.showModal()" @click="init" class="btn btn-sm btn-ghost aspect-square p-0">
+  <button @click="init(); appendPresetModal?.showModal()" class="btn btn-sm btn-ghost aspect-square p-0">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
     </svg>
   </button>
-  <dialog id="appendPresetModal" class="modal">
+  <dialog ref="appendPresetModal" class="modal">
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
         <h2 class="text-lg font-bold">プリセット追加</h2>
         <form method="dialog">
-          <button onclick="appendPresetModal.showModal()" class="btn btn-sm btn-ghost aspect-square p-0">
+          <button @click="appendPresetModal?.showModal()" class="btn btn-sm btn-ghost aspect-square p-0">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -74,7 +75,7 @@
         <form method="dialog">
           <button class="btn">キャンセル</button>
         </form>
-        <button onclick="appendPresetModal.close()" @click="append" :disabled="!data.name || !Object.values(data.scores).reduce((a, b) => a + b, 0)" class="btn btn-primary">追加</button>
+        <button @click="append(); appendPresetModal?.close()" :disabled="!data.name || !Object.values(data.scores).reduce((a, b) => a + b, 0)" class="btn btn-primary">追加</button>
       </div>
     </div>
     <form method="dialog" class="modal-backdrop">

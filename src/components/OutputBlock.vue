@@ -8,6 +8,7 @@
   const input = useInputStore()
   const presets = usePresetsStore()
   const removeIndex = ref<number | null>(null)
+  const removeModal = ref<HTMLDialogElement | null>(null)
 
   const sum = (list: number[]) => list.reduce((a, b) => a + b, 0)
   const filter = (obj: { [key: string]: number }) => Object.keys(obj)
@@ -51,18 +52,18 @@
           </tbody>
         </table>
         <div class="flex justify-end mt-2">
-          <button onclick="removeModal.showModal()" @click="removeIndex = i" class="btn btn-outline btn-error btn-sm">削除する</button>
+          <button @click="removeIndex = i; removeModal?.showModal()" class="btn btn-outline btn-error btn-sm">削除する</button>
         </div>
       </div>
     </div>
-    <dialog id="removeModal" v-if="removeIndex != null" class="modal">
-      <div class="modal-box">
+    <dialog ref="removeModal" class="modal">
+      <div v-if="removeIndex != null" class="modal-box">
         <p class="py-4">「{{ presets.list[removeIndex]?.name }}」を削除しますか？</p>
         <div class="modal-action">
           <form method="dialog">
             <button class="btn">キャンセル</button>
           </form>
-          <button onclick="removeModal.close()" @click="presets.remove(removeIndex)" class="btn btn-error">削除</button>
+          <button @click="presets.remove(removeIndex); removeModal?.close()" class="btn btn-error">削除</button>
         </div>
       </div>
       <form method="dialog" class="modal-backdrop">
