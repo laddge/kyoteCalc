@@ -9,20 +9,13 @@
   const presets = usePresetsStore()
   const removeIndex = ref<number | null>(null)
 
-  const sum = (list: number[]) => list.length ? list.reduce((a, b) => a + b) : 0
-  const filter = (obj: { [key: string]: number }) => {
-    const keys = Object.keys(obj)
-      .filter((k: string) => obj[k])
-    if (keys.length) {
-      return keys
-        .reduce((res: { [key: string]: number }, k: string) => {
-          res[k] = obj[k]
-          return res
-        }, {})
-    } else {
-      return {}
-    }
-  }
+  const sum = (list: number[]) => list.reduce((a, b) => a + b, 0)
+  const filter = (obj: { [key: string]: number }) => Object.keys(obj)
+    .filter((k: string) => obj[k])
+    .reduce((res: { [key: string]: number }, k: string) => {
+      res[k] = obj[k]
+      return res
+    }, {})
 </script>
 
 <template>
