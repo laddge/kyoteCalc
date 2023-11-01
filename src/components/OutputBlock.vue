@@ -30,9 +30,9 @@
       <div class="collapse-title text-xl font-medium flex">
         {{ p.name }}
         <div class="ml-6">
-          {{ sum(Object.keys(p.scores).map(k => (input.scores[k] / subjects[k].score * p.scores[k]) || 0)) }}
+          {{ sum(Object.keys(p.scores).map(k => (input.scores[k] * p.scores[k] / subjects[k].score) || 0)) }}
           <span class="text-sm">/ {{ sum(Object.values(filter(p.scores))) }}</span>
-          ({{ (Math.round(sum(Object.keys(p.scores).map(k => (input.scores[k] / subjects[k].score * p.scores[k]) || 0)) / sum(Object.values(filter(p.scores))) * 1000) / 10) || 0 }}%)
+          ({{ (Math.round(sum(Object.keys(p.scores).map(k => (input.scores[k] * p.scores[k] / subjects[k].score) || 0)) / sum(Object.values(filter(p.scores))) * 1000) / 10) || 0 }}%)
         </div>
       </div>
       <div class="collapse-content">
@@ -46,7 +46,7 @@
                 </div>
               </th>
               <td class="w-1/4 text-right">
-                {{ (input.scores[key] / subjects[key].score * score) || 0 }} / {{ score }}
+                {{ (input.scores[key] * score / subjects[key].score) || 0 }} / {{ score }}
               </td>
             </tr>
           </tbody>
